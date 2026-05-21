@@ -1,7 +1,7 @@
 package main
 
 // XFRM SA setup for ESP-in-TCP with AES-128-GCM AEAD (fragnesia path).
-// One SA is enough — the keystream table technique reuses it for all bytes.
+// One SA is enough - the keystream table technique reuses it for all bytes.
 
 import (
 	"encoding/binary"
@@ -88,12 +88,12 @@ func addXfrmSA() error {
 	xs := buf[16:] // xfrm_usersa_info body (224 bytes) after 16-byte nlmsghdr
 
 	// xfrm_usersa_info field offsets (verified against SizeofXfrm* constants):
-	//   [0..55]    sel (56)  — wildcard, leave zero
+	//   [0..55]    sel (56)  - wildcard, leave zero
 	//   [56..79]   id (24)
 	//   [80..95]   saddr (16)
-	//   [96..159]  lft (64)  — unlimited limits
-	//   [160..191] curlft (32) — zero
-	//   [192..203] stats (12) — zero
+	//   [96..159]  lft (64)  - unlimited limits
+	//   [160..191] curlft (32) - zero
+	//   [192..203] stats (12) - zero
 	//   [204]      seq (4)
 	//   [208]      reqid (4)
 	//   [212]      family (2)

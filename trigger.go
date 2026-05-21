@@ -201,7 +201,7 @@ func runReceiver(ready chan<- struct{}) error {
 	defer unix.Close(cfd)
 
 	// Wait for sender to have spliced file data into our receive buffer,
-	// then install TCP_ULP espintcp — the kernel decrypts the queued data
+	// then install TCP_ULP espintcp - the kernel decrypts the queued data
 	// in-place, XORing the AES-GCM keystream into the page-cache page.
 	time.Sleep(receiverPreULP)
 
@@ -265,7 +265,7 @@ func runSender() error {
 		return fmt.Errorf("sender splice file→pipe: %w", err)
 	}
 
-	// Splice pipe into the TCP socket — data enters the receiver's receive queue
+	// Splice pipe into the TCP socket - data enters the receiver's receive queue
 	// as the body of the ESP-in-TCP record (ciphertext to be "decrypted").
 	if _, err := unix.Splice(pfd[0], nil, sock, nil, fragLen, unix.SPLICE_F_MOVE); err != nil {
 		return fmt.Errorf("sender splice pipe→tcp: %w", err)

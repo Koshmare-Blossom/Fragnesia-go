@@ -1,7 +1,7 @@
 package main
 
-// Fragnesia — Go port of CVE-2026-46300 LPE.
-// For educational purposes — study of kernel page-cache write primitives.
+// Fragnesia - Go port of CVE-2026-46300 LPE.
+// For educational purposes - study of kernel page-cache write primitives.
 //
 // Primitive: when TCP_ULP espintcp is installed after data has been splice()d
 // into the receive queue from a file, the kernel AES-GCM decrypts in-place,
